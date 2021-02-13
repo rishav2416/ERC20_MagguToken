@@ -34,9 +34,9 @@ contract("MagguToken", function(accounts){
     it("Transfers ownership", function(){
         return MagguToken.deployed().then(function(i){
             tokenInstance=i;
-            assert(tokenInstance.transfer.call(accounts[1], 9999999999));
+            assert(tokenInstance.transfer.call(accounts[1], 99999999999));
         }).then(assert.fail).catch(function(e){
-            assert(error.message.indexOf('revert')>=0, "error msg must have a revert");
+            assert(e.message.indexOf('revert')>=0, "error msg must have a revert");
             return tokenInstance.transfer.call(accounts[1], 250000, {from : accounts[0]});
         }).then(function(success){
             assert.equal(success, true, 'it returns true');
@@ -53,8 +53,8 @@ contract("MagguToken", function(accounts){
             assert.equal(balance.toNumber(), 250000, 'money recieved by recieving account');
             return tokenInstance.balanceOf(accounts[0]);
         }).then(function(balance){
-            assert.equal(balance.toNumber(), 750000,, "money sent by sender");
-        }).
+            assert.equal(balance.toNumber(), 750000, "money sent by sender");
+        })
     })
 
 })

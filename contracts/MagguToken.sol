@@ -29,16 +29,16 @@ contract MagguToken{
     }
 
     //Transfer function
-    function transfer(address _to, uint256 _value) public returns (bool){
+    function transfer(address _to, uint256 _value) public returns (bool success){
             //Exception if account doesn't have enough
-            require(balance[msg.sender]>=_value); //if it is true, continue function execution
+            require(balanceOf[msg.sender]>=_value); //if it is true, continue function execution
             
             //Transfer balance
             balanceOf[msg.sender] -=_value;
             balanceOf[_to] +=_value;
 
             //Transfer event
-            Transfer(msg.sender, _to, _value);
+            emit Transfer(msg.sender, _to, _value);
 
             return true;
 
