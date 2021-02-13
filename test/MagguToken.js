@@ -34,7 +34,7 @@ contract("MagguToken", function(accounts){
     it("Transfers ownership", function(){
         return MagguToken.deployed().then(function(i){
             tokenInstance=i;
-            assert(tokenInstance.transfer.call(accounts[1], 99999999999));
+            return tokenInstance.transfer.call(accounts[1], 99999999999);
         }).then(assert.fail).catch(function(e){
             assert(e.message.indexOf('revert')>=0, "error msg must have a revert");
             return tokenInstance.transfer.call(accounts[1], 250000, {from : accounts[0]});
