@@ -2,14 +2,23 @@
 pragma solidity ^0.7.4;
 
 contract MagguToken{
-    // Constructor
-    // Set total number of tokens
-    // Read total number of Tokens
+    //Name
+    string public name="MagguToken";
+    //Symbol
+    string public symbol ="MUG";
+    //Total Supply
     uint256 public totalSupply;
+    
+    mapping(address=> uint256) public balanceOf;
 
-    constructor(){
-        totalSupply = 1000000;
+    //Constructor
+    constructor(uint256 _initialSupply){
+        //allocate the initial supply
+        balanceOf[msg.sender] = _initialSupply;
+        totalSupply = _initialSupply;
     }
+
+
 
 
 }
