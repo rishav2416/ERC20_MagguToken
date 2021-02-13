@@ -62,10 +62,10 @@ contract MagguToken{
         //Require allowance is big enough
         require(allowance[_from][msg.sender]>=_value);
         //Change balance
-        balanceOf[_from]-=value;
-        balanceOf[_to]+=value;
+        balanceOf[_from]-=_value;
+        balanceOf[_to]+=_value;
         //Update Allowance
-        allowance[_from][msg.sender]-=value;
+        allowance[_from][msg.sender]-=_value;
         //Transfer event
         emit Transfer(_from, _to, _value);
         return true;

@@ -95,15 +95,15 @@ contract("MagguToken", function(accounts){
         }).then(assert.fail).catch(function(e){
             assert(e.message.indexOf('revert')>=0, 'cannot transfer value larger than approved amount');
             return tokenInstance.transferFrom.call(fromAccount, toAccount, 10,{from:spendingAccount});
-        }),then(function(success){
+        }).then(function(success){
             assert.equal(success, true);
             return tokenInstance.transferFrom(fromAccount, toAccount, 10, {from : spendingAccount});
         }).then(function(receipt){
             assert.equal(receipt.logs.length, 1, 'trigger one event');
-            assert.equal(receipt.logs[0].event, 'Approval', 'should be the Trigger event');
-            assert.equal(receipt.logs[0].args._owner, accounts[0], 'logs the account tokens are transferred from');
-            assert.equal(receipt.logs[0].args._spender, accounts[1], 'logs the account token are transferred to');
-            assert.equal(receipt.logs[0].args._value, 100, 'logs the transfer amount');
+            assert.equal(receipt.logs[0].event, 'Transfer', 'should be the Trigger event');
+            assert.equal(receipt.logs[0].args._from, accounts[2], 'logs the account tokens are transferred from');
+            assert.equal(receipt.logs[0].args._to, accounts[3], 'logs the account token are transferred to');
+            assert.equal(receipt.logs[0].args._value, 10, 'logs the transfer amount');
             return tokenInstance.balanceOf(fromAccount);
         }).then(function(balance){
             assert.equal(balance.toNumber(), 90, 'deducts the amount from sender account');
