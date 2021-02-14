@@ -3,7 +3,7 @@ pragma solidity ^0.7.4;
 import "./MagguToken.sol";
 
 contract TokenSale {
-    address admin;
+    address payable admin;
     MagguToken public tokenContract;
     uint256 public tokenPrice;
     uint256 public tokenSold; 
@@ -43,5 +43,14 @@ contract TokenSale {
     // Keep track of tokenSold
     tokenSold += _numberOfTokens;
     }
+    //Ending Token Sale
+    function endSale() public { 
+        //Only admin can do this
+        require(msg.sender==admin);
+        //Transfer amount of remaining token to admin
+        require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))));
 
+        admin.transfer(address(this).balance);
+
+    }
 }

@@ -90,4 +90,24 @@ contract("TokenSale", function (accounts) {
       assert(error.message.indexOf('revert') >= 0, 'cannot purchase more tokens than available');
     });
   });
+  it("ends token sale", function(){
+    return MagguToken.deployed().then(function(i){
+      //Grab token Instance first
+      tokenInstance = i;
+      return TokenSale.deployed(); 
+    }).then(function(i){
+      //Grab token sale instance
+      tokenSaleInstance = i;
+      //Try to end sale from account othr than admin
+      return tokenSaleInstance.endSale({from: buyer});
+    }).then(assert.fail).catch(function(e){
+      assert(e.message.indexOf("revert")>=0, "must be a admin to end sale");
+      //End sale with admin
+      return tokenSaleInstance.endSale({from: admin});
+    }).then(function(receipt){
+          return tokenInstance.balanceOf(admin);
+    }).then(function(balance){
+          assert.equal(balance.toNumber(), 1000000, "return all unsold tokens to admin");
+    })
+  })
 });
