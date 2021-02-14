@@ -1,0 +1,851 @@
+{
+  "contractName": "TokenSale",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract MagguToken",
+          "name": "_tokenContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tokenPrice",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "tokenContract",
+      "outputs": [
+        {
+          "internalType": "contract MagguToken",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract MagguToken\",\"name\":\"_tokenContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenPrice\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"tokenContract\",\"outputs\":[{\"internalType\":\"contract MagguToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/noddy527/Token/contracts/TokenSale.sol\":\"TokenSale\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/noddy527/Token/contracts/MagguToken.sol\":{\"keccak256\":\"0x34cafb3e769d611bc124dcd32eff6c3be27fdde2d9d4b857a76c95941798e504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d08e65b32a452570dae7858a69f532ec030c8320e0a13263df00ff8f4110edc8\",\"dweb:/ipfs/QmYT5vPbC3xbgMAQNefm27Wtdm2dL9sm5uXowUBF9oBajL\"]},\"/home/noddy527/Token/contracts/TokenSale.sol\":{\"keccak256\":\"0xc1a292a3c82a0e94d150920cab1aa30edcf0f203458082b5a1e9392ebf23b79c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://190bece1fd59d83ca93798eafd3344d42312d93c85fa8ce102bbdd8be905659c\",\"dweb:/ipfs/QmUg9htrLPtWB3ft5wuQmqY8WkjiRvSt5EhVzM7z8WSgup\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516101cd3803806101cd8339818101604052604081101561003357600080fd5b810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600281905550505060e7806100e66000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806355a373d61460375780637ff9b596146069575b600080fd5b603d6085565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b606f60ab565b6040518082815260200191505060405180910390f35b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6002548156fea2646970667358221220509787516871b3d6e71da8b1be9162ce3ac2299fa312692a0cae1a86be3a751064736f6c63430007040033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806355a373d61460375780637ff9b596146069575b600080fd5b603d6085565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b606f60ab565b6040518082815260200191505060405180910390f35b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6002548156fea2646970667358221220509787516871b3d6e71da8b1be9162ce3ac2299fa312692a0cae1a86be3a751064736f6c63430007040033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "88:370:2:-:0;;;209:246;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;309:10;303:5;;:16;;;;;;;;;;;;;;;;;;370:14;356:13;;:28;;;;;;;;;;;;;;;;;;436:11;422:10;:25;;;;209:246;;88:370;;;;;;",
+  "deployedSourceMap": "88:370:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;133:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;171:25;;;:::i;:::-;;;;;;;;;;;;;;;;;;;133:31;;;;;;;;;;;;;:::o;171:25::-;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.7.4;\r\nimport \"./MagguToken.sol\";\r\n\r\ncontract TokenSale{\r\n    address admin;\r\n    MagguToken public tokenContract;\r\n    uint256 public tokenPrice;\r\n    \r\n    constructor(MagguToken _tokenContract, uint256 _tokenPrice){\r\n        //Assign admin\r\n        admin=msg.sender;\r\n        //Token Contract\r\n        tokenContract=_tokenContract;\r\n        //Token Price set\r\n        tokenPrice =  _tokenPrice;\r\n    }\r\n}",
+  "sourcePath": "/home/noddy527/Token/contracts/TokenSale.sol",
+  "ast": {
+    "absolutePath": "/home/noddy527/Token/contracts/TokenSale.sol",
+    "exportedSymbols": {
+      "MagguToken": [
+        185
+      ],
+      "TokenSale": [
+        249
+      ]
+    },
+    "id": 250,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 220,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:2"
+      },
+      {
+        "absolutePath": "/home/noddy527/Token/contracts/MagguToken.sol",
+        "file": "./MagguToken.sol",
+        "id": 221,
+        "nodeType": "ImportDirective",
+        "scope": 250,
+        "sourceUnit": 186,
+        "src": "58:26:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 249,
+        "linearizedBaseContracts": [
+          249
+        ],
+        "name": "TokenSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 223,
+            "mutability": "mutable",
+            "name": "admin",
+            "nodeType": "VariableDeclaration",
+            "scope": 249,
+            "src": "113:13:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 222,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "113:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "functionSelector": "55a373d6",
+            "id": 225,
+            "mutability": "mutable",
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 249,
+            "src": "133:31:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_MagguToken_$185",
+              "typeString": "contract MagguToken"
+            },
+            "typeName": {
+              "id": 224,
+              "name": "MagguToken",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 185,
+              "src": "133:10:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MagguToken_$185",
+                "typeString": "contract MagguToken"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "7ff9b596",
+            "id": 227,
+            "mutability": "mutable",
+            "name": "tokenPrice",
+            "nodeType": "VariableDeclaration",
+            "scope": 249,
+            "src": "171:25:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 226,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "171:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 247,
+              "nodeType": "Block",
+              "src": "268:187:2",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 237,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 234,
+                      "name": "admin",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 223,
+                      "src": "303:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 235,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "309:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 236,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "309:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "303:16:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 238,
+                  "nodeType": "ExpressionStatement",
+                  "src": "303:16:2"
+                },
+                {
+                  "expression": {
+                    "id": 241,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 239,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 225,
+                      "src": "356:13:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_MagguToken_$185",
+                        "typeString": "contract MagguToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 240,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 229,
+                      "src": "370:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_MagguToken_$185",
+                        "typeString": "contract MagguToken"
+                      }
+                    },
+                    "src": "356:28:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_MagguToken_$185",
+                      "typeString": "contract MagguToken"
+                    }
+                  },
+                  "id": 242,
+                  "nodeType": "ExpressionStatement",
+                  "src": "356:28:2"
+                },
+                {
+                  "expression": {
+                    "id": 245,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 243,
+                      "name": "tokenPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 227,
+                      "src": "422:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 244,
+                      "name": "_tokenPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 231,
+                      "src": "436:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "422:25:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 246,
+                  "nodeType": "ExpressionStatement",
+                  "src": "422:25:2"
+                }
+              ]
+            },
+            "id": 248,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 232,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 229,
+                  "mutability": "mutable",
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 248,
+                  "src": "221:25:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_MagguToken_$185",
+                    "typeString": "contract MagguToken"
+                  },
+                  "typeName": {
+                    "id": 228,
+                    "name": "MagguToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 185,
+                    "src": "221:10:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_MagguToken_$185",
+                      "typeString": "contract MagguToken"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 231,
+                  "mutability": "mutable",
+                  "name": "_tokenPrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 248,
+                  "src": "248:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 230,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "248:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "220:48:2"
+            },
+            "returnParameters": {
+              "id": 233,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "268:0:2"
+            },
+            "scope": 249,
+            "src": "209:246:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 250,
+        "src": "88:370:2"
+      }
+    ],
+    "src": "33:425:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/noddy527/Token/contracts/TokenSale.sol",
+      "exportedSymbols": {
+        "MagguToken": [
+          185
+        ],
+        "TokenSale": [
+          249
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".4"
+          ]
+        },
+        "id": 220,
+        "name": "PragmaDirective",
+        "src": "33:23:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 186,
+          "absolutePath": "/home/noddy527/Token/contracts/MagguToken.sol",
+          "file": "./MagguToken.sol",
+          "scope": 250,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 221,
+        "name": "ImportDirective",
+        "src": "58:26:2"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            249
+          ],
+          "name": "TokenSale",
+          "scope": 250
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "admin",
+              "scope": 249,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 222,
+                "name": "ElementaryTypeName",
+                "src": "113:7:2"
+              }
+            ],
+            "id": 223,
+            "name": "VariableDeclaration",
+            "src": "113:13:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "55a373d6",
+              "mutability": "mutable",
+              "name": "tokenContract",
+              "scope": 249,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract MagguToken",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "MagguToken",
+                  "referencedDeclaration": 185,
+                  "type": "contract MagguToken"
+                },
+                "id": 224,
+                "name": "UserDefinedTypeName",
+                "src": "133:10:2"
+              }
+            ],
+            "id": 225,
+            "name": "VariableDeclaration",
+            "src": "133:31:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "7ff9b596",
+              "mutability": "mutable",
+              "name": "tokenPrice",
+              "scope": 249,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 226,
+                "name": "ElementaryTypeName",
+                "src": "171:7:2"
+              }
+            ],
+            "id": 227,
+            "name": "VariableDeclaration",
+            "src": "171:25:2"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 249,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_tokenContract",
+                      "scope": 248,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract MagguToken",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "MagguToken",
+                          "referencedDeclaration": 185,
+                          "type": "contract MagguToken"
+                        },
+                        "id": 228,
+                        "name": "UserDefinedTypeName",
+                        "src": "221:10:2"
+                      }
+                    ],
+                    "id": 229,
+                    "name": "VariableDeclaration",
+                    "src": "221:25:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_tokenPrice",
+                      "scope": 248,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 230,
+                        "name": "ElementaryTypeName",
+                        "src": "248:7:2"
+                      }
+                    ],
+                    "id": 231,
+                    "name": "VariableDeclaration",
+                    "src": "248:19:2"
+                  }
+                ],
+                "id": 232,
+                "name": "ParameterList",
+                "src": "220:48:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 233,
+                "name": "ParameterList",
+                "src": "268:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 223,
+                              "type": "address",
+                              "value": "admin"
+                            },
+                            "id": 234,
+                            "name": "Identifier",
+                            "src": "303:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": -15,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 235,
+                                "name": "Identifier",
+                                "src": "309:3:2"
+                              }
+                            ],
+                            "id": 236,
+                            "name": "MemberAccess",
+                            "src": "309:10:2"
+                          }
+                        ],
+                        "id": 237,
+                        "name": "Assignment",
+                        "src": "303:16:2"
+                      }
+                    ],
+                    "id": 238,
+                    "name": "ExpressionStatement",
+                    "src": "303:16:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract MagguToken"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 225,
+                              "type": "contract MagguToken",
+                              "value": "tokenContract"
+                            },
+                            "id": 239,
+                            "name": "Identifier",
+                            "src": "356:13:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 229,
+                              "type": "contract MagguToken",
+                              "value": "_tokenContract"
+                            },
+                            "id": 240,
+                            "name": "Identifier",
+                            "src": "370:14:2"
+                          }
+                        ],
+                        "id": 241,
+                        "name": "Assignment",
+                        "src": "356:28:2"
+                      }
+                    ],
+                    "id": 242,
+                    "name": "ExpressionStatement",
+                    "src": "356:28:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 227,
+                              "type": "uint256",
+                              "value": "tokenPrice"
+                            },
+                            "id": 243,
+                            "name": "Identifier",
+                            "src": "422:10:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 231,
+                              "type": "uint256",
+                              "value": "_tokenPrice"
+                            },
+                            "id": 244,
+                            "name": "Identifier",
+                            "src": "436:11:2"
+                          }
+                        ],
+                        "id": 245,
+                        "name": "Assignment",
+                        "src": "422:25:2"
+                      }
+                    ],
+                    "id": 246,
+                    "name": "ExpressionStatement",
+                    "src": "422:25:2"
+                  }
+                ],
+                "id": 247,
+                "name": "Block",
+                "src": "268:187:2"
+              }
+            ],
+            "id": 248,
+            "name": "FunctionDefinition",
+            "src": "209:246:2"
+          }
+        ],
+        "id": 249,
+        "name": "ContractDefinition",
+        "src": "88:370:2"
+      }
+    ],
+    "id": 250,
+    "name": "SourceUnit",
+    "src": "33:425:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.4+commit.3f05b770.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-02-14T07:26:20.213Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
